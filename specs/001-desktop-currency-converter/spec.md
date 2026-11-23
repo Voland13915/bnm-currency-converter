@@ -13,6 +13,9 @@
 ### Session 2026-11-23
 
 - Q: What should happen when the selected currency is missing from the applicable rate set? → A: Block conversion and show an unavailable-currency message.
+- Q: What is the maximum supported amount? → A: 1 000 000 000.
+- Q: When should rates be loaded? → A: At startup for today and whenever the selected date changes, without requesting a date already loaded in this session.
+- Q: What language should the interface use? → A: Russian.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -91,7 +94,7 @@ When current rates cannot be reached, the user receives a clear explanation and 
 - **FR-006**: The rate date MUST default to today, and the user MUST NOT be able to select a future date.
 - **FR-007**: The Convert action MUST remain disabled until the amount, source currency, target currency, and rate date are filled in.
 - **FR-008**: The application MUST accept period and comma as decimal separators and MUST allow no more than two digits after the decimal separator.
-- **FR-009**: An empty, non-numeric, zero, negative, or over-precision amount MUST produce a field-level error and no conversion.
+- **FR-009**: An empty, non-numeric, zero, negative, over-precision, or greater-than-1-000-000-000 amount MUST produce a field-level error and no conversion.
 - **FR-010**: The application MUST show converted amounts to two decimal places and rates to no more than four decimal places.
 - **FR-011**: Each conversion result MUST identify the exchange rate as target-currency units per one source-currency unit, the applicable rate date, and National Bank of Moldova as the source.
 - **FR-012**: The Swap action MUST exchange the selected source and target currencies.
@@ -104,6 +107,8 @@ When current rates cannot be reached, the user receives a clear explanation and 
 - **FR-018**: If the rate source cannot be reached and no saved response exists, the application MUST display a clear message and remain usable without producing a conversion.
 - **FR-019**: The application MUST report network unavailability, timeout, server error, empty response, and malformed response with short plain-language messages, without crashing.
 - **FR-020**: Verification materials MUST include real NBM response examples for a business day and a weekend day, preserving the original response format in `src/test/resources`.
+- **FR-021**: The application MUST load rates at startup for today and whenever the selected date changes, and MUST NOT request again a date already loaded during the current session.
+- **FR-022**: The application interface MUST use Russian.
 
 ### Key Entities
 
