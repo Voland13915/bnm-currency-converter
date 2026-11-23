@@ -43,14 +43,14 @@
 
 ### Implementation for User Story 1
 
-- [ ] T010 [P] [US1] Implement amount validation for `data-model.md` `Amount Validation`: period or comma separator, at most two fractional digits, `> 0`, and maximum 1,000,000,000 in `src/main/java/md/bnm/converter/service/AmountValidator.java`
-- [ ] T011 [US1] Implement through-MDL conversion and unavailable-currency checks in `src/main/java/md/bnm/converter/service/CurrencyConverter.java`, using `data-model.md` `Published Rate.Per-unit rate` and `Conversion Result.Converted amount`
-- [ ] T012 [US1] Implement conversion result formatting for two-decimal amounts, cross-rates to no more than four decimals, requested/applicable dates, NBM source, and fallback text in `src/main/java/md/bnm/converter/service/ConversionResultFormatter.java`
-- [ ] T013 [US1] Build the Russian JavaFX form for amount, currency selectors, date selection, result/error areas, and future-date prohibition in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
-- [ ] T014 [US1] Implement JavaFX `Task`-based startup and date-change loading plus session-date deduplication in `src/main/java/md/bnm/converter/ui/RateLoadingController.java`
-- [ ] T015 [US1] Wire Convert to validation, loaded-rate checks, conversion, and Russian field-level errors in `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
-- [ ] T016 [US1] Add Russian weekend and earlier-date fallback explanations to `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java` using `data-model.md` `Rate Set.explanation`
-- [ ] T017 [US1] Create the JavaFX application entry point in `src/main/java/md/bnm/converter/ui/ConverterApplication.java`
+- [X] T010 [P] [US1] Implement amount validation for `data-model.md` `Amount Validation`: period or comma separator, at most two fractional digits, `> 0`, and maximum 1,000,000,000 in `src/main/java/md/bnm/converter/service/AmountValidator.java`
+- [X] T011 [US1] Implement through-MDL conversion and unavailable-currency checks in `src/main/java/md/bnm/converter/service/CurrencyConverter.java`, using `data-model.md` `Published Rate.Per-unit rate` and `Conversion Result.Converted amount`
+- [X] T012 [US1] Implement conversion result formatting for two-decimal amounts, cross-rates to no more than four decimals, requested/applicable dates, NBM source, and fallback text in `src/main/java/md/bnm/converter/service/ConversionResultFormatter.java`
+- [X] T013 [US1] Build the Russian JavaFX form for amount, currency selectors, date selection, result/error areas, and future-date prohibition in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
+- [X] T014 [US1] Implement JavaFX `Task`-based startup and date-change loading plus session-date deduplication in `src/main/java/md/bnm/converter/ui/RateLoadingController.java`
+- [X] T015 [US1] Wire Convert to validation, loaded-rate checks, conversion, and Russian field-level errors in `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
+- [X] T016 [US1] Add Russian weekend and earlier-date fallback explanations to `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java` using `data-model.md` `Rate Set.explanation`
+- [X] T017 [US1] Create the JavaFX application entry point in `src/main/java/md/bnm/converter/ui/ConverterApplication.java`
 
 **Checkpoint**: User Story 1 works independently: valid conversion and all specified amount/rate-date/missing-currency outcomes are testable.
 

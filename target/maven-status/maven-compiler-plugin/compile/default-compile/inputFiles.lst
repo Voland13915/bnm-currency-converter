@@ -5,8 +5,15 @@ C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\s
 C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\model\PublishedRate.java
 C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\model\RateOrigin.java
 C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\model\RateSet.java
+C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\service\AmountValidator.java
+C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\service\ConversionResultFormatter.java
+C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\service\CurrencyConverter.java
 C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\service\RateLoadErrorType.java
 C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\service\RateLoadException.java
 C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\service\RateProvider.java
 C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\source\NbmRateSource.java
 C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\source\NbmXmlParser.java
+C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\ui\ConverterApplication.java
+C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\ui\CurrencyConverterController.java
+C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\ui\CurrencyConverterView.java
+C:\Users\migov\OneDrive\Рабочий стол\PSI_ahr\bnm-currency-converter\src\main\java\md\bnm\converter\ui\RateLoadingController.java
