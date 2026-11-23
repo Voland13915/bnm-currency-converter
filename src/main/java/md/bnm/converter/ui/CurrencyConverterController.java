@@ -49,10 +49,29 @@ public class CurrencyConverterController {
             }
         });
 
+        // Swap action handler (FR-012, US2)
+        view.getSwapButton().setOnAction(e -> handleSwap());
+
         // Clear amount error when user modifies the input
         view.getAmountField().textProperty().addListener((obs, oldVal, newVal) -> {
             view.getAmountErrorLabel().setText("");
         });
+    }
+
+    public void handleSwap() {
+        Currency source = view.getSourceCurrencyCombo().getValue();
+        Currency target = view.getTargetCurrencyCombo().getValue();
+
+        if (source == null && target == null) {
+            return;
+        }
+
+        view.swapCurrencies();
+
+        // If a result is currently displayed, immediately recalculate and update result rendering
+        if (view.isResultVisible()) {
+            handleConvert();
+        }
     }
 
     public void handleConvert() {
@@ -102,7 +121,7 @@ public class CurrencyConverterController {
         String sourceAndDate = ConversionResultFormatter.formatSourceAndDate(result);
         String explanation = result.explanation();
 
-        view.showResult(summary, rate, sourceAndDate, explanation);
+        view.updateResultAfterSwap(summary, rate, sourceAndDate, explanation);
     }
 
     public RateLoadingController getRateLoadingController() {

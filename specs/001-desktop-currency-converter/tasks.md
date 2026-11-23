@@ -64,8 +64,8 @@
 
 ### Implementation for User Story 2
 
-- [ ] T018 [US2] Implement Swap behavior in `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
-- [ ] T019 [US2] Update result rendering after Swap in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
+- [X] T018 [US2] Implement Swap behavior in `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
+- [X] T019 [US2] Update result rendering after Swap in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
 
 **Checkpoint**: User Stories 1 and 2 work independently; swapping reverses selections and recalculates through MDL.
 

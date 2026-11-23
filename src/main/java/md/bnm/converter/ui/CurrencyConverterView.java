@@ -315,6 +315,21 @@ public class CurrencyConverterView {
         resultExplanationLabel.setText("");
     }
 
+    public boolean isResultVisible() {
+        return resultContainer.isVisible();
+    }
+
+    public void swapCurrencies() {
+        Currency source = sourceCurrencyCombo.getValue();
+        Currency target = targetCurrencyCombo.getValue();
+        sourceCurrencyCombo.setValue(target);
+        targetCurrencyCombo.setValue(source);
+    }
+
+    public void updateResultAfterSwap(String summary, String rate, String sourceAndDate, String explanation) {
+        showResult(summary, rate, sourceAndDate, explanation);
+    }
+
     public void showResult(String summary, String rate, String sourceAndDate, String explanation) {
         resultSummaryLabel.setText(summary);
         resultRateLabel.setText(rate);
