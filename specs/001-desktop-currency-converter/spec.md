@@ -92,7 +92,7 @@ When current rates cannot be reached, the user receives a clear explanation and 
 - **FR-004**: The application MUST calculate conversions through MDL using amount × source rate ÷ target rate.
 - **FR-005**: The application MUST allow the same currency in both selections and return the entered amount as the result.
 - **FR-006**: The rate date MUST default to today, and the user MUST NOT be able to select a future date.
-- **FR-007**: The Convert action MUST remain disabled until the amount, source currency, target currency, and rate date are filled in.
+- **FR-007**: The Convert action MUST be enabled when the amount field is non-empty and both currencies and the rate date are selected. Amount validity MUST be checked when Convert is pressed, and validation errors MUST be shown next to the amount field.
 - **FR-008**: The application MUST accept period and comma as decimal separators and MUST allow no more than two digits after the decimal separator.
 - **FR-009**: An empty, non-numeric, zero, negative, over-precision, or greater-than-1-000-000-000 amount MUST produce a field-level error and no conversion.
 - **FR-010**: The application MUST show converted amounts to two decimal places and rates to no more than four decimal places.
@@ -128,7 +128,6 @@ When current rates cannot be reached, the user receives a clear explanation and 
 - **SC-004**: Weekend dates, dates with no published rates, and missing rates within the 10-day search produce the corresponding required explanation or unavailable-rates message.
 - **SC-005**: After a successful rate load and application restart, an unavailable source can be handled using the saved response, with its date and cache origin clearly identified.
 - **SC-006**: Each specified source failure case produces a plain-language error while leaving the application available for further use.
-- **SC-007**: When rate data is already available, at least 95% of conversion requests display a result within two seconds of the user choosing Convert.
 
 ## Assumptions
 

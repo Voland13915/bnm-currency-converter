@@ -16,7 +16,6 @@ Build a Russian-language JavaFX desktop currency converter that retrieves offici
 - **Testing**: JUnit 5 with `mvn test`; real business-day and weekend XML fixtures are already present in `src/test/resources`. Add focused empty and malformed response fixtures.
 - **Target Platform**: Desktop systems supported by Java 21 and JavaFX 21.
 - **Project Type**: Single Maven desktop application.
-- **Performance Goals**: With rates already loaded, at least 95% of conversions display within two seconds; conversion itself is local.
 - **Constraints**: HTTP request timeout of 10 seconds; network work must not block the JavaFX thread; amount is positive and at most 1,000,000,000 with no more than two fractional digits; results use two decimal places (`HALF_UP`), and per-unit rates use scale 10 (`HALF_UP`). No future rate dates.
 - **Scale/Scope**: One desktop user, one conversion window, and the currencies in an NBM response plus MDL. Rates load at startup for today and on date changes, with no duplicate request for a date already loaded in the session.
 

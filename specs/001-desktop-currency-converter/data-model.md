@@ -18,7 +18,7 @@ An NBM currency quote containing its currency, nominal quantity, quoted `Value`,
 The currencies and rates available for a conversion, with provenance and date context.
 
 - `requestedDate`: date selected by the user.
-- `applicableDate`: effective date of the rates, distinct from the selected date when weekend or empty-date fallback rules apply.
+- `applicableDate`: applicable date of the rates, distinct from the selected date when weekend or empty-date fallback rules apply.
 - `rates`: immutable lookup by currency code, always containing MDL.
 - `origin`: live response, earlier-date fallback, or accepted local cache.
 - `explanation`: optional user-facing reason for weekend, fallback, or cache use.
