@@ -12,9 +12,9 @@
 
 **Purpose**: Initialize the Maven Java 21 and JavaFX 21 application.
 
-- [ ] T001 Create the Maven project structure and `pom.xml` with Java 21, JavaFX 21, the JavaFX Maven plugin, JUnit 5, and Maven test and JavaFX run configuration at repository root
-- [ ] T002 [P] Create package directories for `src/main/java/md/bnm/converter/{model,source,cache,service,ui}` and `src/test/java/md/bnm/converter/{model,source,cache,service,ui}` in the repository
-- [ ] T003 [P] Add empty and malformed XML fixtures in `src/test/resources/bnm-empty.xml` and `src/test/resources/bnm-malformed.xml`
+- [X] T001 Create the Maven project structure and `pom.xml` with Java 21, JavaFX 21, the JavaFX Maven plugin, JUnit 5, and Maven test and JavaFX run configuration at repository root
+- [X] T002 [P] Create package directories for `src/main/java/md/bnm/converter/{model,source,cache,service,ui}` and `src/test/java/md/bnm/converter/{model,source,cache,service,ui}` in the repository
+- [X] T003 [P] Add empty and malformed XML fixtures in `src/test/resources/bnm-empty.xml` and `src/test/resources/bnm-malformed.xml`
 
 ---
 
