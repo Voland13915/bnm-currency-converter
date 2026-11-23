@@ -113,17 +113,13 @@ public class RateProvider {
 
         for (int i = 1; i <= 10; i++) {
             LocalDate candidateDate = requestedDate.minusDays(i);
-            try {
-                String candidateXml = rateSource.fetchXml(candidateDate);
-                NbmXmlParser.ParsedXml candidateParsed = xmlParser.parse(candidateXml);
-                if (candidateParsed.hasRates()) {
-                    fallbackDate = candidateDate;
-                    fallbackParsed = candidateParsed;
-                    fallbackRawXml = candidateXml;
-                    break;
-                }
-            } catch (RateLoadException ignored) {
-                // Ignore transient or empty failures on earlier dates and keep searching
+            String candidateXml = rateSource.fetchXml(candidateDate);
+            NbmXmlParser.ParsedXml candidateParsed = xmlParser.parse(candidateXml);
+            if (candidateParsed.hasRates()) {
+                fallbackDate = candidateDate;
+                fallbackParsed = candidateParsed;
+                fallbackRawXml = candidateXml;
+                break;
             }
         }
 
@@ -173,12 +169,25 @@ public class RateProvider {
             throw new RateLoadException(RateLoadErrorType.CACHE_UNAVAILABLE, "Локальный кэш не содержит курсов валют.");
         }
 
-        LocalDate applicableDate = parsed.date();
-        String explanation = "Использованы курсы из локального кэша за " + applicableDate.format(DATE_FORMATTER) + ".";
+        LocalDate rootDate = parsed.date();
+        boolean isWeekend = (rootDate.getDayOfWeek() == DayOfWeek.SATURDAY ||
+                             rootDate.getDayOfWeek() == DayOfWeek.SUNDAY);
 
-        RateSet rateSet = new RateSet(requestedDate, applicableDate, parsed.rates(), RateOrigin.LOCAL_CACHE, explanation);
-        sessionCache.put(requestedDate, rateSet);
-        return rateSet;
+        LocalDate applicableDate;
+        String explanation;
+
+        if (isWeekend) {
+            applicableDate = rootDate.getDayOfWeek() == DayOfWeek.SATURDAY
+                ? rootDate.minusDays(1)
+                : rootDate.minusDays(2);
+            explanation = "НБМ не устанавливает курс в выходные дни, применяется курс за предшествующую пятницу. "
+                + "Использованы курсы из локального кэша за " + applicableDate.format(DATE_FORMATTER) + ".";
+        } else {
+            applicableDate = rootDate;
+            explanation = "Использованы курсы из локального кэша за " + applicableDate.format(DATE_FORMATTER) + ".";
+        }
+
+        return new RateSet(requestedDate, applicableDate, parsed.rates(), RateOrigin.LOCAL_CACHE, explanation);
     }
 
     public ResponseCache getResponseCache() {
