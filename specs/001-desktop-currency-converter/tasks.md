@@ -93,9 +93,9 @@
 
 **Purpose**: Final verification, documentation, and robustness across stories.
 
-- [ ] T025 [P] Add Russian error strings and consistent result labels across `src/main/java/md/bnm/converter/ui/`
-- [ ] T026 Verify Maven dependencies remain limited to JavaFX and JUnit 5 in `pom.xml`
-- [ ] T027 Run `mvn javafx:run` and validate startup, conversion, Swap, fallback, and cache workflows against `specs/001-desktop-currency-converter/quickstart.md`
+- [X] T025 [P] Add Russian error strings and consistent result labels across `src/main/java/md/bnm/converter/ui/`
+- [X] T026 Verify Maven dependencies remain limited to JavaFX and JUnit 5 in `pom.xml`
+- [X] T027 Run `mvn javafx:run` and validate startup, conversion, Swap, fallback, and cache workflows against `specs/001-desktop-currency-converter/quickstart.md`
 
 ---
 
