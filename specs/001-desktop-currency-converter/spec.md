@@ -8,6 +8,12 @@
 
 **Input**: User description: Build a desktop currency converter using official National Bank of Moldova exchange rates, with currency/date selection, conversion, swapping, validation, weekend and missing-rate handling, and persistent offline cache.
 
+## Clarifications
+
+### Session 2026-11-23
+
+- Q: What should happen when the selected currency is missing from the applicable rate set? → A: Block conversion and show an unavailable-currency message.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Convert an amount (Priority: P1)
@@ -67,6 +73,7 @@ When current rates cannot be reached, the user receives a clear explanation and 
 - NBM quotes some rates for multiple units; the rate for one currency unit is the quoted value divided by its nominal.
 - MDL is available as a currency with a rate of 1 even though it is absent from the NBM currency response.
 - Conversions between any two currencies are calculated through MDL, so reversing the direction returns the original amount within rounding to two decimal places.
+- If neither selected currency is MDL and either currency is missing from the applicable rate set, the application must block conversion and show an unavailable-currency message.
 - The NBM response's root date on a weekend is the requested date, not proof that a rate was published that day; the app must use the weekend rule rather than claiming that a weekend rate was set.
 - The user may change currency or date selections after a previous result; any subsequent result must identify the selections and rate data used for that conversion.
 - Network, timeout, server, empty-response, malformed-response, and unavailable-cache cases must leave the application usable and must not display a success-shaped result.
@@ -91,6 +98,7 @@ When current rates cannot be reached, the user receives a clear explanation and 
 - **FR-013**: For a Saturday or Sunday selection, the application MUST state that NBM does not set rates on weekends and that the previous Friday's rate applies.
 - **FR-014**: If the requested date's response contains no currencies, the application MUST search earlier dates up to 10 days back, use the most recent earlier date containing rates if found, and identify the actual date and reason for using it.
 - **FR-015**: If no rates are found within that 10-day search, the application MUST report that rates are unavailable and MUST NOT produce a conversion.
+- **FR-015a**: If a selected non-MDL currency is absent from the applicable rate set, the application MUST block conversion and show an unavailable-currency message.
 - **FR-016**: The application MUST save the last successful NBM response locally so it remains available after an application restart.
 - **FR-017**: When the rate source cannot be reached and a saved response exists, the application MUST offer the user the cached rates. If accepted, results MUST identify the cached date and local-cache origin.
 - **FR-018**: If the rate source cannot be reached and no saved response exists, the application MUST display a clear message and remain usable without producing a conversion.
