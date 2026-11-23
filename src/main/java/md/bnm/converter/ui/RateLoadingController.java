@@ -58,6 +58,7 @@ public class RateLoadingController {
 
         view.clearResult();
         view.hideGlobalError();
+        view.hideCacheOffer();
         view.showLoading("Загрузка официальных курсов валют на " + date.format(DATE_FORMATTER) + "...");
 
         Task<RateSet> task = new Task<>() {
@@ -71,6 +72,7 @@ public class RateLoadingController {
             RateSet rateSet = task.getValue();
             view.hideLoading();
             view.hideGlobalError();
+            view.hideCacheOffer();
             currentRateSet.set(rateSet);
             updateCurrencySelectors(rateSet);
             view.ratesLoadedProperty().set(true);
@@ -83,17 +85,61 @@ public class RateLoadingController {
             view.ratesLoadedProperty().set(false);
 
             String message;
+            boolean isSourceFailure;
             if (ex instanceof RateLoadException rle) {
                 message = rle.getUserMessage();
+                md.bnm.converter.service.RateLoadErrorType type = rle.getErrorType();
+                isSourceFailure = (type == md.bnm.converter.service.RateLoadErrorType.NETWORK_ERROR
+                    || type == md.bnm.converter.service.RateLoadErrorType.TIMEOUT
+                    || type == md.bnm.converter.service.RateLoadErrorType.SERVER_ERROR);
             } else {
                 message = "Ошибка при загрузке курсов: " + (ex != null && ex.getMessage() != null ? ex.getMessage() : "неизвестная ошибка");
+                isSourceFailure = true;
             }
+
             view.showGlobalError(message);
+
+            // FR-017, US3: If live source fails and cached response exists, offer explicit choice to use cache
+            if (isSourceFailure && rateProvider.hasUsableCache()) {
+                LocalDate cachedDate = rateProvider.getCachedDate().orElse(null);
+                String dateStr = cachedDate != null ? cachedDate.format(DATE_FORMATTER) : "предыдущую дату";
+                view.showCacheOffer("Источник недоступен. Доступны сохранённые курсы от " + dateStr + ". Использовать сохранённые курсы?");
+            } else {
+                view.hideCacheOffer();
+            }
         });
 
         Thread thread = new Thread(task, "rate-loader-" + date);
         thread.setDaemon(true);
         thread.start();
+    }
+
+    public void acceptCache() {
+        LocalDate selectedDate = view.getDatePicker().getValue();
+        if (selectedDate == null) {
+            selectedDate = LocalDate.now();
+        }
+
+        try {
+            RateSet cachedRateSet = rateProvider.loadFromCache(selectedDate);
+            currentRateSet.set(cachedRateSet);
+            updateCurrencySelectors(cachedRateSet);
+            view.hideCacheOffer();
+            view.hideGlobalError();
+            view.ratesLoadedProperty().set(true);
+        } catch (RateLoadException e) {
+            view.hideCacheOffer();
+            view.showGlobalError("Не удалось загрузить кэш: " + e.getUserMessage());
+            currentRateSet.set(null);
+            view.ratesLoadedProperty().set(false);
+        }
+    }
+
+    public void declineCache() {
+        view.hideCacheOffer();
+        view.showGlobalError("Использование сохранённых курсов отклонено. Курсы валют недоступны.");
+        currentRateSet.set(null);
+        view.ratesLoadedProperty().set(false);
     }
 
     private void updateCurrencySelectors(RateSet rateSet) {

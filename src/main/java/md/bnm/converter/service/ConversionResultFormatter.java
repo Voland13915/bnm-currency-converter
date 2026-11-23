@@ -49,8 +49,11 @@ public class ConversionResultFormatter {
 
     public static String formatSourceAndDate(ConversionResult result) {
         Objects.requireNonNull(result, "result must not be null");
+        String originSuffix = result.origin() == md.bnm.converter.model.RateOrigin.LOCAL_CACHE
+            ? " (локальный кэш)"
+            : "";
         return "Дата курса: " + result.applicableDate().format(DATE_FORMATTER)
-            + " • Источник: " + result.sourceAttribution();
+            + " • Источник: " + result.sourceAttribution() + originSuffix;
     }
 
     public static String formatFullResult(ConversionResult result) {

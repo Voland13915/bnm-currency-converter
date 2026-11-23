@@ -52,6 +52,10 @@ public class CurrencyConverterController {
         // Swap action handler (FR-012, US2)
         view.getSwapButton().setOnAction(e -> handleSwap());
 
+        // Cache acceptance and rejection handlers (FR-017, US3)
+        view.getAcceptCacheButton().setOnAction(e -> handleAcceptCache());
+        view.getDeclineCacheButton().setOnAction(e -> handleDeclineCache());
+
         // Clear amount error when user modifies the input
         view.getAmountField().textProperty().addListener((obs, oldVal, newVal) -> {
             view.getAmountErrorLabel().setText("");
@@ -72,6 +76,15 @@ public class CurrencyConverterController {
         if (view.isResultVisible()) {
             handleConvert();
         }
+    }
+
+    public void handleAcceptCache() {
+        rateLoadingController.acceptCache();
+    }
+
+    public void handleDeclineCache() {
+        rateLoadingController.declineCache();
+        view.clearResult();
     }
 
     public void handleConvert() {
@@ -97,6 +110,11 @@ public class CurrencyConverterController {
 
         RateSet rateSet = rateLoadingController.getCurrentRateSet();
         if (rateSet == null) {
+            if (rateProvider.hasUsableCache() && !view.isCacheOfferVisible()) {
+                java.time.LocalDate cachedDate = rateProvider.getCachedDate().orElse(null);
+                String dateStr = cachedDate != null ? cachedDate.format(java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy")) : "предыдущую дату";
+                view.showCacheOffer("Источник недоступен. Доступны сохранённые курсы от " + dateStr + ". Использовать сохранённые курсы?");
+            }
             view.showGlobalError("Официальные курсы валют на выбранную дату ещё не загружены.");
             return;
         }

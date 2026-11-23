@@ -157,6 +157,14 @@ public class RateProvider {
         return responseCache.load();
     }
 
+    public boolean hasUsableCache() {
+        return responseCache.load().isPresent();
+    }
+
+    public Optional<LocalDate> getCachedDate() {
+        return responseCache.load().map(CachedResponse::date);
+    }
+
     public RateSet loadFromCache(LocalDate requestedDate) throws RateLoadException {
         Objects.requireNonNull(requestedDate, "requestedDate must not be null");
 

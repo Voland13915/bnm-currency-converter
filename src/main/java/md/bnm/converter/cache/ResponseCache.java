@@ -75,6 +75,10 @@ public class ResponseCache {
             }
 
             NbmXmlParser.ParsedXml parsed = parser.parse(rawXml);
+            if (!parsed.hasRates()) {
+                System.err.println("Предупреждение: Кэш не содержит курсов валют (" + cacheFilePath + ").");
+                return Optional.empty();
+            }
             return Optional.of(new CachedResponse(parsed.date(), rawXml));
         } catch (RateLoadException e) {
             System.err.println("Предупреждение: Не удалось разобрать кэш курсов валют (" + cacheFilePath + "): " + e.getMessage());

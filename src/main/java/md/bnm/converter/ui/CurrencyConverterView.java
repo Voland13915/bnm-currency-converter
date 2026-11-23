@@ -52,6 +52,11 @@ public class CurrencyConverterView {
 
     private final Label globalErrorLabel;
 
+    private final VBox cacheOfferBox;
+    private final Label cacheOfferMessageLabel;
+    private final Button acceptCacheButton;
+    private final Button declineCacheButton;
+
     private final BooleanProperty ratesLoadedProperty;
 
     public CurrencyConverterView() {
@@ -200,6 +205,28 @@ public class CurrencyConverterView {
         this.globalErrorLabel.setVisible(false);
         this.globalErrorLabel.setManaged(false);
 
+        // Cache Offer Box (FR-017, US3)
+        this.cacheOfferBox = new VBox(8);
+        this.cacheOfferBox.setPadding(new Insets(10));
+        this.cacheOfferBox.setStyle("-fx-background-color: #fff8e1; -fx-border-color: #ffe082; -fx-border-radius: 4; -fx-background-radius: 4;");
+        this.cacheOfferBox.setVisible(false);
+        this.cacheOfferBox.setManaged(false);
+
+        this.cacheOfferMessageLabel = new Label();
+        this.cacheOfferMessageLabel.setWrapText(true);
+        this.cacheOfferMessageLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #b78103;");
+
+        this.acceptCacheButton = new Button("Использовать сохранённые курсы");
+        this.acceptCacheButton.setStyle("-fx-background-color: #ff8f00; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 4 12 4 12;");
+
+        this.declineCacheButton = new Button("Отклонить");
+        this.declineCacheButton.setStyle("-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-padding: 4 12 4 12;");
+
+        HBox cacheButtonsRow = new HBox(8, acceptCacheButton, declineCacheButton);
+        cacheButtonsRow.setAlignment(Pos.CENTER_LEFT);
+
+        this.cacheOfferBox.getChildren().addAll(cacheOfferMessageLabel, cacheButtonsRow);
+
         // Assemble root
         this.root.getChildren().addAll(
             amountLabel,
@@ -210,6 +237,7 @@ public class CurrencyConverterView {
             dateRow,
             actionRow,
             globalErrorLabel,
+            cacheOfferBox,
             resultContainer
         );
     }
@@ -304,6 +332,38 @@ public class CurrencyConverterView {
         globalErrorLabel.setText("");
         globalErrorLabel.setVisible(false);
         globalErrorLabel.setManaged(false);
+    }
+
+    public void showCacheOffer(String message) {
+        cacheOfferMessageLabel.setText(message);
+        cacheOfferBox.setVisible(true);
+        cacheOfferBox.setManaged(true);
+    }
+
+    public void hideCacheOffer() {
+        cacheOfferMessageLabel.setText("");
+        cacheOfferBox.setVisible(false);
+        cacheOfferBox.setManaged(false);
+    }
+
+    public boolean isCacheOfferVisible() {
+        return cacheOfferBox.isVisible();
+    }
+
+    public Button getAcceptCacheButton() {
+        return acceptCacheButton;
+    }
+
+    public Button getDeclineCacheButton() {
+        return declineCacheButton;
+    }
+
+    public Label getCacheOfferMessageLabel() {
+        return cacheOfferMessageLabel;
+    }
+
+    public VBox getCacheOfferBox() {
+        return cacheOfferBox;
     }
 
     public void clearResult() {

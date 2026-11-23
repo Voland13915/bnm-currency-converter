@@ -79,11 +79,11 @@
 
 ### Implementation for User Story 3
 
-- [ ] T020 [US3] Persist the last successfully parsed raw NBM XML response using `data-model.md` `Cached Response` and its raw XML, root `Date`, and corrupted-cache handling constraints in `src/main/java/md/bnm/converter/cache/ResponseCache.java`
-- [ ] T021 [US3] Reparse cached XML, reject corrupted cache data, and mark cache origin only after acceptance in `src/main/java/md/bnm/converter/service/RateProvider.java`
-- [ ] T022 [US3] Add Russian source-failure and explicit cached-rate offer states to `src/main/java/md/bnm/converter/ui/RateLoadingController.java`
-- [ ] T023 [US3] Wire cached-rate acceptance and rejection into `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
-- [ ] T024 [US3] Add cache date and local-cache origin to successful result rendering in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
+- [X] T020 [US3] Persist the last successfully parsed raw NBM XML response using `data-model.md` `Cached Response` and its raw XML, root `Date`, and corrupted-cache handling constraints in `src/main/java/md/bnm/converter/cache/ResponseCache.java`
+- [X] T021 [US3] Reparse cached XML, reject corrupted cache data, and mark cache origin only after acceptance in `src/main/java/md/bnm/converter/service/RateProvider.java`
+- [X] T022 [US3] Add Russian source-failure and explicit cached-rate offer states to `src/main/java/md/bnm/converter/ui/RateLoadingController.java`
+- [X] T023 [US3] Wire cached-rate acceptance and rejection into `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
+- [X] T024 [US3] Add cache date and local-cache origin to successful result rendering in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
 
 **Checkpoint**: All user stories are independently functional, and live/cache failures remain usable and traceable.
 
