@@ -24,12 +24,12 @@
 
 **CRITICAL**: No user-story implementation can begin until this phase is complete.
 
-- [ ] T004 Create immutable `Currency`, `PublishedRate`, `RateSet`, `ConversionResult`, and `CachedResponse` records in `src/main/java/md/bnm/converter/model/` with fields and invariants from `data-model.md` (cite `data-model.md` `Currency.code`, `Currency.displayName`, `Currency.MDL rate of 1`, and `Rate Set.rates`)
-- [ ] T005 [P] Implement secure JAXP XML parsing and root-date/rate validation in `src/main/java/md/bnm/converter/source/NbmXmlParser.java`
-- [ ] T006 [P] Implement NBM HTTP retrieval with JDK `HttpClient`, a 10-second timeout, status handling, and live-result errors in `src/main/java/md/bnm/converter/source/NbmRateSource.java`
-- [ ] T007 [P] Implement persistent raw-XML cache read/write and corrupted-cache handling in `src/main/java/md/bnm/converter/cache/ResponseCache.java`
-- [ ] T008 Implement shared source/result exceptions and error-state types in `src/main/java/md/bnm/converter/service/RateLoadException.java`
-- [ ] T009 Implement a JavaFX-independent rate provider that tracks loaded dates, searches D-1 through D-10 for empty responses, and applies weekend context in `src/main/java/md/bnm/converter/service/RateProvider.java` (cite `data-model.md` `Rate Set.rates`)
+- [X] T004 Create immutable `Currency`, `PublishedRate`, `RateSet`, `ConversionResult`, and `CachedResponse` records in `src/main/java/md/bnm/converter/model/` with fields and invariants from `data-model.md` (cite `data-model.md` `Currency.code`, `Currency.displayName`, `Currency.MDL rate of 1`, and `Rate Set.rates`)
+- [X] T005 [P] Implement secure JAXP XML parsing and root-date/rate validation in `src/main/java/md/bnm/converter/source/NbmXmlParser.java`
+- [X] T006 [P] Implement NBM HTTP retrieval with JDK `HttpClient`, a 10-second timeout, status handling, and live-result errors in `src/main/java/md/bnm/converter/source/NbmRateSource.java`
+- [X] T007 [P] Implement persistent raw-XML cache read/write and corrupted-cache handling in `src/main/java/md/bnm/converter/cache/ResponseCache.java`
+- [X] T008 Implement shared source/result exceptions and error-state types in `src/main/java/md/bnm/converter/service/RateLoadException.java`
+- [X] T009 Implement a JavaFX-independent rate provider that tracks loaded dates, searches D-1 through D-10 for empty responses, and applies weekend context in `src/main/java/md/bnm/converter/service/RateProvider.java` (cite `data-model.md` `Rate Set.rates`)
 
 **Checkpoint**: Foundation ready; exact domain types, source parsing, cache, and rate loading are available.
 

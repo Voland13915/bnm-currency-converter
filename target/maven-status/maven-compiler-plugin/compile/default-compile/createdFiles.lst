@@ -1,0 +1,14 @@
+md\bnm\converter\source\NbmXmlParser$StrictErrorHandler.class
+md\bnm\converter\source\NbmRateSource.class
+md\bnm\converter\model\CachedResponse.class
+md\bnm\converter\cache\ResponseCache.class
+md\bnm\converter\model\PublishedRate.class
+md\bnm\converter\model\RateOrigin.class
+md\bnm\converter\source\NbmXmlParser$ParsedXml.class
+md\bnm\converter\source\NbmXmlParser.class
+md\bnm\converter\model\Currency.class
+md\bnm\converter\service\RateLoadException.class
+md\bnm\converter\service\RateProvider.class
+md\bnm\converter\service\RateLoadErrorType.class
+md\bnm\converter\model\RateSet.class
+md\bnm\converter\model\ConversionResult.class
