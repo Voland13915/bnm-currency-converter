@@ -12,9 +12,9 @@
 
 **Purpose**: Initialize the Maven Java 21 and JavaFX 21 application.
 
-- [ ] T001 Create the Maven project structure and `pom.xml` with Java 21, JavaFX 21, the JavaFX Maven plugin, JUnit 5, and Maven test and JavaFX run configuration at repository root
-- [ ] T002 [P] Create package directories for `src/main/java/md/bnm/converter/{model,source,cache,service,ui}` and `src/test/java/md/bnm/converter/{model,source,cache,service,ui}` in the repository
-- [ ] T003 [P] Add empty and malformed XML fixtures in `src/test/resources/bnm-empty.xml` and `src/test/resources/bnm-malformed.xml`
+- [X] T001 Create the Maven project structure and `pom.xml` with Java 21, JavaFX 21, the JavaFX Maven plugin, JUnit 5, and Maven test and JavaFX run configuration at repository root
+- [X] T002 [P] Create package directories for `src/main/java/md/bnm/converter/{model,source,cache,service,ui}` and `src/test/java/md/bnm/converter/{model,source,cache,service,ui}` in the repository
+- [X] T003 [P] Add empty and malformed XML fixtures in `src/test/resources/bnm-empty.xml` and `src/test/resources/bnm-malformed.xml`
 
 ---
 
@@ -24,12 +24,12 @@
 
 **CRITICAL**: No user-story implementation can begin until this phase is complete.
 
-- [ ] T004 Create immutable `Currency`, `PublishedRate`, `RateSet`, `ConversionResult`, and `CachedResponse` records in `src/main/java/md/bnm/converter/model/` with fields and invariants from `data-model.md` (cite `data-model.md` `Currency.code`, `Currency.displayName`, `Currency.MDL rate of 1`, and `Rate Set.rates`)
-- [ ] T005 [P] Implement secure JAXP XML parsing and root-date/rate validation in `src/main/java/md/bnm/converter/source/NbmXmlParser.java`
-- [ ] T006 [P] Implement NBM HTTP retrieval with JDK `HttpClient`, a 10-second timeout, status handling, and live-result errors in `src/main/java/md/bnm/converter/source/NbmRateSource.java`
-- [ ] T007 [P] Implement persistent raw-XML cache read/write and corrupted-cache handling in `src/main/java/md/bnm/converter/cache/ResponseCache.java`
-- [ ] T008 Implement shared source/result exceptions and error-state types in `src/main/java/md/bnm/converter/service/RateLoadException.java`
-- [ ] T009 Implement a JavaFX-independent rate provider that tracks loaded dates, searches D-1 through D-10 for empty responses, and applies weekend context in `src/main/java/md/bnm/converter/service/RateProvider.java` (cite `data-model.md` `Rate Set.rates`)
+- [X] T004 Create immutable `Currency`, `PublishedRate`, `RateSet`, `ConversionResult`, and `CachedResponse` records in `src/main/java/md/bnm/converter/model/` with fields and invariants from `data-model.md` (cite `data-model.md` `Currency.code`, `Currency.displayName`, `Currency.MDL rate of 1`, and `Rate Set.rates`)
+- [X] T005 [P] Implement secure JAXP XML parsing and root-date/rate validation in `src/main/java/md/bnm/converter/source/NbmXmlParser.java`
+- [X] T006 [P] Implement NBM HTTP retrieval with JDK `HttpClient`, a 10-second timeout, status handling, and live-result errors in `src/main/java/md/bnm/converter/source/NbmRateSource.java`
+- [X] T007 [P] Implement persistent raw-XML cache read/write and corrupted-cache handling in `src/main/java/md/bnm/converter/cache/ResponseCache.java`
+- [X] T008 Implement shared source/result exceptions and error-state types in `src/main/java/md/bnm/converter/service/RateLoadException.java`
+- [X] T009 Implement a JavaFX-independent rate provider that tracks loaded dates, searches D-1 through D-10 for empty responses, and applies weekend context in `src/main/java/md/bnm/converter/service/RateProvider.java` (cite `data-model.md` `Rate Set.rates`)
 
 **Checkpoint**: Foundation ready; exact domain types, source parsing, cache, and rate loading are available.
 
@@ -43,14 +43,14 @@
 
 ### Implementation for User Story 1
 
-- [ ] T010 [P] [US1] Implement amount validation for `data-model.md` `Amount Validation`: period or comma separator, at most two fractional digits, `> 0`, and maximum 1,000,000,000 in `src/main/java/md/bnm/converter/service/AmountValidator.java`
-- [ ] T011 [US1] Implement through-MDL conversion and unavailable-currency checks in `src/main/java/md/bnm/converter/service/CurrencyConverter.java`, using `data-model.md` `Published Rate.Per-unit rate` and `Conversion Result.Converted amount`
-- [ ] T012 [US1] Implement conversion result formatting for two-decimal amounts, cross-rates to no more than four decimals, requested/applicable dates, NBM source, and fallback text in `src/main/java/md/bnm/converter/service/ConversionResultFormatter.java`
-- [ ] T013 [US1] Build the Russian JavaFX form for amount, currency selectors, date selection, result/error areas, and future-date prohibition in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
-- [ ] T014 [US1] Implement JavaFX `Task`-based startup and date-change loading plus session-date deduplication in `src/main/java/md/bnm/converter/ui/RateLoadingController.java`
-- [ ] T015 [US1] Wire Convert to validation, loaded-rate checks, conversion, and Russian field-level errors in `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
-- [ ] T016 [US1] Add Russian weekend and earlier-date fallback explanations to `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java` using `data-model.md` `Rate Set.explanation`
-- [ ] T017 [US1] Create the JavaFX application entry point in `src/main/java/md/bnm/converter/ui/ConverterApplication.java`
+- [X] T010 [P] [US1] Implement amount validation for `data-model.md` `Amount Validation`: period or comma separator, at most two fractional digits, `> 0`, and maximum 1,000,000,000 in `src/main/java/md/bnm/converter/service/AmountValidator.java`
+- [X] T011 [US1] Implement through-MDL conversion and unavailable-currency checks in `src/main/java/md/bnm/converter/service/CurrencyConverter.java`, using `data-model.md` `Published Rate.Per-unit rate` and `Conversion Result.Converted amount`
+- [X] T012 [US1] Implement conversion result formatting for two-decimal amounts, cross-rates to no more than four decimals, requested/applicable dates, NBM source, and fallback text in `src/main/java/md/bnm/converter/service/ConversionResultFormatter.java`
+- [X] T013 [US1] Build the Russian JavaFX form for amount, currency selectors, date selection, result/error areas, and future-date prohibition in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
+- [X] T014 [US1] Implement JavaFX `Task`-based startup and date-change loading plus session-date deduplication in `src/main/java/md/bnm/converter/ui/RateLoadingController.java`
+- [X] T015 [US1] Wire Convert to validation, loaded-rate checks, conversion, and Russian field-level errors in `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
+- [X] T016 [US1] Add Russian weekend and earlier-date fallback explanations to `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java` using `data-model.md` `Rate Set.explanation`
+- [X] T017 [US1] Create the JavaFX application entry point in `src/main/java/md/bnm/converter/ui/ConverterApplication.java`
 
 **Checkpoint**: User Story 1 works independently: valid conversion and all specified amount/rate-date/missing-currency outcomes are testable.
 
@@ -64,8 +64,8 @@
 
 ### Implementation for User Story 2
 
-- [ ] T018 [US2] Implement Swap behavior in `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
-- [ ] T019 [US2] Update result rendering after Swap in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
+- [X] T018 [US2] Implement Swap behavior in `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
+- [X] T019 [US2] Update result rendering after Swap in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
 
 **Checkpoint**: User Stories 1 and 2 work independently; swapping reverses selections and recalculates through MDL.
 
@@ -79,11 +79,11 @@
 
 ### Implementation for User Story 3
 
-- [ ] T020 [US3] Persist the last successfully parsed raw NBM XML response using `data-model.md` `Cached Response` and its raw XML, root `Date`, and corrupted-cache handling constraints in `src/main/java/md/bnm/converter/cache/ResponseCache.java`
-- [ ] T021 [US3] Reparse cached XML, reject corrupted cache data, and mark cache origin only after acceptance in `src/main/java/md/bnm/converter/service/RateProvider.java`
-- [ ] T022 [US3] Add Russian source-failure and explicit cached-rate offer states to `src/main/java/md/bnm/converter/ui/RateLoadingController.java`
-- [ ] T023 [US3] Wire cached-rate acceptance and rejection into `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
-- [ ] T024 [US3] Add cache date and local-cache origin to successful result rendering in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
+- [X] T020 [US3] Persist the last successfully parsed raw NBM XML response using `data-model.md` `Cached Response` and its raw XML, root `Date`, and corrupted-cache handling constraints in `src/main/java/md/bnm/converter/cache/ResponseCache.java`
+- [X] T021 [US3] Reparse cached XML, reject corrupted cache data, and mark cache origin only after acceptance in `src/main/java/md/bnm/converter/service/RateProvider.java`
+- [X] T022 [US3] Add Russian source-failure and explicit cached-rate offer states to `src/main/java/md/bnm/converter/ui/RateLoadingController.java`
+- [X] T023 [US3] Wire cached-rate acceptance and rejection into `src/main/java/md/bnm/converter/ui/CurrencyConverterController.java`
+- [X] T024 [US3] Add cache date and local-cache origin to successful result rendering in `src/main/java/md/bnm/converter/ui/CurrencyConverterView.java`
 
 **Checkpoint**: All user stories are independently functional, and live/cache failures remain usable and traceable.
 
@@ -93,9 +93,9 @@
 
 **Purpose**: Final verification, documentation, and robustness across stories.
 
-- [ ] T025 [P] Add Russian error strings and consistent result labels across `src/main/java/md/bnm/converter/ui/`
-- [ ] T026 Verify Maven dependencies remain limited to JavaFX and JUnit 5 in `pom.xml`
-- [ ] T027 Run `mvn javafx:run` and validate startup, conversion, Swap, fallback, and cache workflows against `specs/001-desktop-currency-converter/quickstart.md`
+- [X] T025 [P] Add Russian error strings and consistent result labels across `src/main/java/md/bnm/converter/ui/`
+- [X] T026 Verify Maven dependencies remain limited to JavaFX and JUnit 5 in `pom.xml`
+- [X] T027 Run `mvn javafx:run` and validate startup, conversion, Swap, fallback, and cache workflows against `specs/001-desktop-currency-converter/quickstart.md`
 
 ---
 
