@@ -4,7 +4,6 @@ Version change: unversioned template → 1.0.0 (initial adoption)
 Modified principles: unfilled principle placeholders → I–VIII, as listed below
 Added sections: Platform & Dependencies; Specification & Delivery
 Removed sections: none
-Follow-up TODOs: confirm the original ratification date
 -->
 
 # BNM Currency Converter Constitution
@@ -83,4 +82,4 @@ behavior, UI-independent logic, required tests, and dependency constraints
 where applicable. Any deviation MUST be documented and reviewed rather than
 silently accepted.
 
-**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): confirm original adoption date | **Last Amended**: 2026-11-23
+**Version**: 1.0.0 | **Ratified**: 2026-11-23 | **Last Amended**: 2026-11-23
