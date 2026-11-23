@@ -103,20 +103,20 @@
 
 **Purpose**: Complete JUnit 5 unit coverage in a separate final phase.
 
-- [ ] T028 [P] Add reusable JUnit 5 test configuration and baseline test base classes under `src/test/java/md/bnm/converter/`
-- [ ] T029 [P] [US1] Test parsing of real weekday and weekend fixtures plus required `Published Rate` fields in `src/test/java/md/bnm/converter/source/NbmXmlParserTest.java` (cite `data-model.md` `Published Rate.Nominal`, `Published Rate.Value`, and `Published Rate.Currency code`)
-- [ ] T030 [P] [US1] Test empty and malformed XML distinction in `src/test/java/md/bnm/converter/source/NbmXmlParserTest.java`
-- [ ] T031 [P] [US1] Test period/comma amount parsing and field constraints in `src/test/java/md/bnm/converter/service/AmountValidatorTest.java` (cite `data-model.md` `Amount Validation`: accept period or comma, at most two fractional digits, require greater than zero and at most 1,000,000,000, and reject empty/non-numeric/negative/zero/over-precision/above-maximum values)
-- [ ] T032 [P] [US1] Test same-currency and cross-currency `BigDecimal` conversion, four-decimal display, and reverse-direction rounding in `src/test/java/md/bnm/converter/service/CurrencyConverterTest.java` (cite `data-model.md` `Published Rate.Per-unit rate`, `Conversion Result.Converted amount`, and `Conversion Result.Cross-rate`)
-- [ ] T033 [P] [US1] Test weekend context and D-1 through D-10 empty-response fallback in `src/test/java/md/bnm/converter/service/RateProviderTest.java` (cite `data-model.md` `Rate Set.requestedDate`, `Rate Set.applicableDate`, and `Rate Set.explanation`)
-- [ ] T034 [P] [US1] Test unavailable-currency blocking in `src/test/java/md/bnm/converter/service/CurrencyConverterTest.java`
-- [ ] T035 [P] [US2] Test reverse conversion recovery within two-decimal display rounding in `src/test/java/md/bnm/converter/service/CurrencyConverterTest.java`
-- [ ] T036 [P] [US3] Test cache writes, restart reloading, and ignored corrupted cache data in `src/test/java/md/bnm/converter/cache/ResponseCacheTest.java` (cite `data-model.md` `Cached Response` and its raw XML, root `Date`, and corrupted-cache handling constraints)
-- [ ] T037 [P] [US3] Test timeout, network, HTTP, empty-rate, malformed-response, and no-cache messages in `src/test/java/md/bnm/converter/service/RateProviderTest.java`
-- [ ] T038 [P] [US3] Test that cache origin is applied only after explicit acceptance in `src/test/java/md/bnm/converter/service/RateProviderTest.java` (cite `data-model.md` `Rate Set.origin`)
-- [ ] T039 [P] Add or complete JUnit 5 tests in `src/test/java/md/bnm/converter/` for all mandatory behaviors, preserving the real fixtures under `src/test/resources/`
-- [ ] T040 Run `mvn test` and resolve failures in the repository
-- [ ] T041 [P] Document the `mvn test` command in `README.md`
+- [X] T028 [P] Add reusable JUnit 5 test configuration and baseline test base classes under `src/test/java/md/bnm/converter/`
+- [X] T029 [P] [US1] Test parsing of real weekday and weekend fixtures plus required `Published Rate` fields in `src/test/java/md/bnm/converter/source/NbmXmlParserTest.java` (cite `data-model.md` `Published Rate.Nominal`, `Published Rate.Value`, and `Published Rate.Currency code`)
+- [X] T030 [P] [US1] Test empty and malformed XML distinction in `src/test/java/md/bnm/converter/source/NbmXmlParserTest.java`
+- [X] T031 [P] [US1] Test period/comma amount parsing and field constraints in `src/test/java/md/bnm/converter/service/AmountValidatorTest.java` (cite `data-model.md` `Amount Validation`: accept period or comma, at most two fractional digits, require greater than zero and at most 1,000,000,000, and reject empty/non-numeric/negative/zero/over-precision/above-maximum values)
+- [X] T032 [P] [US1] Test same-currency and cross-currency `BigDecimal` conversion, four-decimal display, and reverse-direction rounding in `src/test/java/md/bnm/converter/service/CurrencyConverterTest.java` (cite `data-model.md` `Published Rate.Per-unit rate`, `Conversion Result.Converted amount`, and `Conversion Result.Cross-rate`)
+- [X] T033 [P] [US1] Test weekend context and D-1 through D-10 empty-response fallback in `src/test/java/md/bnm/converter/service/RateProviderTest.java` (cite `data-model.md` `Rate Set.requestedDate`, `Rate Set.applicableDate`, and `Rate Set.explanation`)
+- [X] T034 [P] [US1] Test unavailable-currency blocking in `src/test/java/md/bnm/converter/service/CurrencyConverterTest.java`
+- [X] T035 [P] [US2] Test reverse conversion recovery within two-decimal display rounding in `src/test/java/md/bnm/converter/service/CurrencyConverterTest.java`
+- [X] T036 [P] [US3] Test cache writes, restart reloading, and ignored corrupted cache data in `src/test/java/md/bnm/converter/cache/ResponseCacheTest.java` (cite `data-model.md` `Cached Response` and its raw XML, root `Date`, and corrupted-cache handling constraints)
+- [X] T037 [P] [US3] Test timeout, network, HTTP, empty-rate, malformed-response, and no-cache messages in `src/test/java/md/bnm/converter/service/RateProviderTest.java`
+- [X] T038 [P] [US3] Test that cache origin is applied only after explicit acceptance in `src/test/java/md/bnm/converter/service/RateProviderTest.java` (cite `data-model.md` `Rate Set.origin`)
+- [X] T039 [P] Add or complete JUnit 5 tests in `src/test/java/md/bnm/converter/` for all mandatory behaviors, preserving the real fixtures under `src/test/resources/`
+- [X] T040 Run `mvn test` and resolve failures in the repository
+- [X] T041 [P] Document the `mvn test` command in `README.md`
 
 ---
 
